@@ -4,7 +4,7 @@
   "description": "",
   "main": "bind.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "promises-aplus-tests promise"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ChpShy/fe-handwrite/issues"
   },
-  "homepage": "https://github.com/ChpShy/fe-handwrite#readme"
+  "homepage": "https://github.com/ChpShy/fe-handwrite#readme",
+  "devDependencies": {
+    "promises-aplus-tests": "^2.1.2"
+  }
 }
