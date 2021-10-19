@@ -4,3 +4,4 @@
 - [bind](./bind.js)
 - [instanceof](./instanceof.js)
 - [promise](./promise.js)
+- [new](./new.js)
