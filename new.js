@@ -15,3 +15,7 @@ Test.prototype.getName = function() {
 
 let test = new Test('222');
 console.log(createNew(Test, 222));
+
+outer: for (let i = 0; i < 2;i++) {
+  console.log(i);
+}
