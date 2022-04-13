@@ -2,7 +2,7 @@
 // 15. 三数之和
 
 
-const input = [0,0,0,0];
+const input = [-2,0,0,2,2];
 /**
  * @param {number[]} nums
  * @return {number[][]}
@@ -24,8 +24,11 @@ const input = [0,0,0,0];
       let sum = nums[i] + nums[L] + nums[R];
       if (sum === 0) {
         res.push([nums[i], nums[L], nums[R]]);
-      }
-      if (sum < 0) {
+        L++;
+        while(L < R && nums[L] === nums[L - 1]) L++;
+        R--;
+        while(L < R && nums[R + 1] === nums[R]) R--;
+      } else if (sum < 0) {
         L++;
         while(L < R && nums[L] === nums[L - 1]) L++;
       } else {
