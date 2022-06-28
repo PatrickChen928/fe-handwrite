@@ -27,25 +27,21 @@ var maxCoins = function (nums) {
   // 2. 动态规划
   nums.unshift(1);
   nums.push(1);
-  let length = nums.length;
-  let dp = Array.from(new Array(length), () => new Array(length).fill(0));
-    var partMaxCoins = function(start, end){
-      let maxCoins = 0;
-      for(let i = start + 1; i < end; i++){
-          let x1 = nums[start] * nums[i] * nums[end];
-          let x2 = dp[start][i] + dp[i][end];
-          maxCoins = Math.max(maxCoins, x1 + x2);
+  const n = nums.length;
+  const dp = Array.from({length: n}, () => new Array(n).fill(0));
+  for (let len = 2; len < n; len++) {
+    for (let start = 0; start < n - len; start++) {
+      const end = start + len;
+      let max = 0;
+      for (let i = start + 1; i < end; i++) {
+        let x1 = nums[start] * nums[i] * nums[end];
+        let x2 = dp[start][i] + dp[i][end];
+        max = Math.max(max, x1 + x2);
       }
-      dp[start][end] = maxCoins;
+      dp[start][end] = max;
+    }
   }
-  for(let i = 2; i < length; i++){
-      for(let start = 0; start < length - i ; start++){
-          partMaxCoins(start, start + i);
-      }
-  }
-
-  
-  return dp[0][length-1];
+  return dp[0][n - 1];
 };
 
 console.log(maxCoins([3, 1, 5, 8]));
